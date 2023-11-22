@@ -1,13 +1,13 @@
 // let carrito = ["sandía","manzana","pera","uva"]
 // console.log(carrito)
+// arreglo = ['jugo', 'queso', 'detergente', 'salame', 'shampoo']
 
+// ● Agregar producto al carrito
 const agregarProducto = () => {
     let agregarFrutaVerdura = prompt("¿Qué producto desea agregar?")
     carrito.push(agregarFrutaVerdura)
     console.log(carrito)
 }
-// agregarProducto()
-// arreglo = ['jugo', 'queso', 'detergente', 'salame', 'shampoo']
 // ● Listar los productos del carrito
 const listar = (arreglo) =>
 {
@@ -17,7 +17,6 @@ const listar = (arreglo) =>
         console.log(arreglo[i])
     }
 }
-// listar(arreglo)
 // ● Buscar un producto en el carrito
 const buscarProducto = (productos, buscado) => {
     for (let index = 0; index < productos.length; index++) {
@@ -26,4 +25,9 @@ const buscarProducto = (productos, buscado) => {
         }
     }
     return "Producto no existente";
+}
+// ● Filtrar productos que coincidan con una palabra, parte de ella o una letra
+const filtrarProductos = (filtro) => {
+    array = array.filter(producto => producto.includes(filtro));
+    console.log(array);
 }
