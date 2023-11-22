@@ -1,9 +1,5 @@
-// let carrito = ["sandía","manzana","pera","uva"]
-// console.log(carrito)
-// arreglo = ['jugo', 'queso', 'detergente', 'salame', 'shampoo']
-
 // ● Agregar producto al carrito
-const agregarProducto = () => {
+const agregarProducto = (carrito) => {
     let agregarFrutaVerdura = prompt("¿Qué producto desea agregar?")
     carrito.push(agregarFrutaVerdura)
     console.log(carrito)
@@ -27,15 +23,43 @@ const buscarProducto = (productos, buscado) => {
     return "Producto no existente";
 }
 // ● Filtrar productos que coincidan con una palabra, parte de ella o una letra
-const filtrarProductos = (filtro) => {
+const filtrarProductos = (array, filtro) => {
     array = array.filter(producto => producto.includes(filtro));
     console.log(array);
 }
 // ● Eliminar producto del carrito
-// let frutas = ["manzana", "banana", "pera", "naranja"]
 let almacenarProductoNuevo = []
-const carrito =(frutas1) => {
-    almacenarProductoNuevo = frutas1.slice(0, 3)
-    console.log(almacenarProductoNuevo)
+const eliminar =(frutas1) => {
+    listar(frutas1);
+    posicion = parseInt(prompt("Fruta a eliminar?"));
+
+    if (posicion >= 1 && posicion <= frutas1.length) {
+        frutas1.splice(posicion - 1, 1);
+    }
+    listar(frutas1);
 }
-carrito(frutas)
+// ■ Crear una aplicación de carrito de compras donde se ingresen productos como elementos en un array.
+let productos = ["sandía","manzana","pera","uva", "pomelo"];
+const carritoCompras = (opcion) => {
+    switch (opcion) {
+        case 1:
+            agregarProducto(productos);
+            break;
+        case 2: 
+            listar(productos);
+            break;
+        case 3:
+            buscado = prompt("Producto a buscar?");
+            console.log(buscarProducto(productos, buscado));
+            break;
+        case 4:
+            palabra = prompt("Filtrar por: ");
+            filtrarProductos(productos, palabra);
+        case 5:
+            eliminar(productos);
+        default:
+            break;
+    }
+}
+opcion = parseInt(prompt(" 1- Agregar Producto \n 2- Listar Producto \n 3- Buscar Producto \n 4- Filtrar Producto \n 5- Eliminar Producto \n Ingrese opcion: "));
+carritoCompras(opcion);
